@@ -1,17 +1,21 @@
-local NPC_ID = 400034 -- The ID of the NPC you want players to get kill credit for
+--Credits to Dinkledork
+--Allows you to cast specified spells to get kill credit for an npc. Handy when you are just needing to cast spells but don't have a specific npc to target
+--Made this for a quest to have players set traps in Stormwind. 
 
--- List of allowed zones (use zone ID)
+local NPC_ID = 400034 -- The ID of the NPC you want players to get kill credit for. This is a dummy npc
+
+-- List of allowed zones to use the spell in (use zone ID)
 local ALLOWED_ZONES = {
     1519, -- SW City
-	12,	
+	12,	--Elwyn Forest
 }
 
--- List of allowed spell IDs
+-- List of allowed spell IDs to count toward quest credit
 local ALLOWED_SPELLS = {
     100144, -- Spell 1
-    100142, 
-    100143,
-	100145, 
+    100142, -- Spell 2
+    100143, -- Spell 3
+	100145, --Spell 4
     -- Add more spells here as needed
 }
 
@@ -33,7 +37,7 @@ function OnPlayerCastSpell(event, player, spell)
     if table.indexOf(ALLOWED_ZONES, zoneId) ~= -1 then
         if table.indexOf(ALLOWED_SPELLS, spellId) ~= -1 then
             player:KilledMonsterCredit(NPC_ID)
-            player:SendBroadcastMessage("You have received kill credit for NPC #"..NPC_ID)
+            player:SendBroadcastMessage("You have successfully placed a trap!") --This can be whatever you want
         end
     end
 end
