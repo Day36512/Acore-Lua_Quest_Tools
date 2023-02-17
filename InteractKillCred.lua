@@ -1,5 +1,6 @@
 --Credits to Dinkledork.
---I created this script to be used in a quest to calm down some frantic stormwind citizens. If player has specified item, can interact with specified npc and select the gossip item that gives the player kill credit.
+--I created this script to be used in a quest to calm down some frantic stormwind citizens. If player has specified item, can interact with specified 
+--npc and select the gossip item that gives the player kill credit. Npc despawns after 5 seconds.
 
 local npcid = 400028 --npc required for quest. Must have a gossip menu flag and be friendly
 local gossipText = "Get the Stormwind Citizen to calm down..." --Gossip dialogue. Change to Whatever
