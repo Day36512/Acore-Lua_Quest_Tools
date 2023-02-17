@@ -1,3 +1,4 @@
+--This script was created by Dinkledork
 --Spell cast on npc counts as kill credit. Invalidates any npc not listed in your local SWG_IDS. Great for quests where maybe you need to bandage npcs or something of the sort.
 
 local SWG_IDS = {68, 400013, 400033, 400014, 1976} --NPCs you want the spell to be castable on
