@@ -3,7 +3,7 @@
 --Made this for a quest to have players set traps in Stormwind. 
 --Zone must be specified. Will likely update this script in the future just to tweak it a bit but is fine as is currently.
 
-local NPC_ID = 400034 -- The ID of the NPC you want players to get kill credit for. This is a dummy npc
+local NPC_ID = 400034 -- The ID of the NPC you want players to get kill credit for. This is a dummy npc (just need db entry but not to actually exist in game)
 
 -- List of allowed zones to use the spell in (use zone ID)
 local ALLOWED_ZONES = {
