@@ -7,8 +7,10 @@ local NPC_ID = 400034 -- The ID of the NPC you want players to get kill credit f
 
 -- List of allowed zones to use the spell in (use zone ID)
 local ALLOWED_ZONES = {
-    1519, -- SW City
-	12,	--Elwyn Forest
+   1519, -- SW City
+   12,
+   14,
+   1637	--Elwyn Forest
 }
 
 -- List of allowed spell IDs to count toward quest credit
@@ -31,14 +33,16 @@ function table.indexOf(t, value)
 end
 
 function OnPlayerCastSpell(event, player, spell)
-    print("Zone ID: "..player:GetZoneId())
     local spellId = spell:GetEntry()
     local zoneId = player:GetZoneId()
 
-    if table.indexOf(ALLOWED_ZONES, zoneId) ~= -1 then
-        if table.indexOf(ALLOWED_SPELLS, spellId) ~= -1 then
+    if table.indexOf(ALLOWED_SPELLS, spellId) ~= -1 then
+        if table.indexOf(ALLOWED_ZONES, zoneId) == -1 then
+            spell:Cancel()
+            player:SendBroadcastMessage("You cannot use that here.") -- change me
+        else
             player:KilledMonsterCredit(NPC_ID)
-            player:SendBroadcastMessage("You have successfully placed a trap!") --This can be whatever you want
+            player:SendBroadcastMessage("You have successfuly placed a trap!") -- change me
         end
     end
 end
